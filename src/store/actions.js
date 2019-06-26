@@ -32,3 +32,16 @@ export const removeExercise = (event, id) => ({
   event,
   id
 })
+
+export const removeScheduleDayExercise = (dayID, exerciseID) => ({
+  type: C.REMOVE_SCHEDULE_DAY_EXERCISE,
+  dayID,
+  exerciseID
+})
+
+export const chooseScheduleDayExercise = (dayID, exerciseID, history) => ({
+  type: C.CHOOSE_SCHEDULE_DAY_EXERCISE,
+  dayID,
+  exerciseID,
+  history
+})

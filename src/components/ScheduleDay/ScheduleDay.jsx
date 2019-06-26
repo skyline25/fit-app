@@ -4,18 +4,18 @@ import PropTypes from 'prop-types'
 import './ScheduleDay.scss'
 import PageTemplate from '../PageTemplate'
 
-const ScheduleDay = ({match, schedule, exercises, workDays}) => {
-  // console.log(match, schedule)
+const ScheduleDay = ({match, schedule, exercises, workDays, onRemoveExerciseClick}) => {
+
   const scheduleDay = schedule.days.find(day => {
     return (
       day.id === match.params.dayID
     )
   })
 
-  const handleRemove = (event, id) => {
+  const handleRemove = (event, dayID, exerciseID ) => {
     event.preventDefault()
 
-    // removeExerciseFromSchedule( dayID, exerciseID )
+    onRemoveExerciseClick( dayID, exerciseID )
   }
 
   return (
@@ -26,11 +26,11 @@ const ScheduleDay = ({match, schedule, exercises, workDays}) => {
         <ul>{scheduleDay.exercises.map(exercise => {
           return (
             <li key={exercise.id}>
-              {/* {exercise.name} <a onClick={e=>handleRemove(e, scheduleDay.id , exercise.id)}>Удалить</a> */}
+              {exercise.name} <a onClick={e=>handleRemove(e, scheduleDay.id, exercise.id)}>Удалить</a>
             </li>
           )
         })}</ul>
-        <Link to={'/choose-exercise'}>Добавить упражнение</Link>
+        <Link to={`/choose-exercise/${match.params.dayID}`}>Добавить упражнение</Link>
       </>
     </PageTemplate>
   )

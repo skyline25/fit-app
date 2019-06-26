@@ -25,7 +25,8 @@ function App() {
             <Route exact path="/exercises" component={ExercisesContainer}></Route>
             <Route path="/exercises/:exerciseID" component={ExercisePage}></Route>
             <Route path="/add-exercise" component={AddExercisePageContainer}></Route>
-            <Route path="/choose-exercise" component={ChooseExerciseContainer}></Route>
+            
+            <Route path="/choose-exercise/:dayID" component={ChooseExerciseContainer}></Route>
             <Route path="/statistic" component={Statistic}></Route>
           </Switch>
         </div>

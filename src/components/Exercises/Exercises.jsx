@@ -10,7 +10,10 @@ const Exercises = ({ exercises, onAddClick, onRemoveClick }) => {
       <>
         <h1>Список упражнений</h1>
         <ul className="exercise-list">
-          {exercises.map(exercise => {
+          {exercises.sort((a,b)=>{
+            return a.id > b.id ? 1 : -1
+            // После добавления порядка в состояние "order", исправить сортировку на .order
+          }).map(exercise => {
             return (
               <li key={exercise.id} className="exercise-list__item">
                 <Link to={`/exercises/${exercise.id}`}>{exercise.name}</Link>

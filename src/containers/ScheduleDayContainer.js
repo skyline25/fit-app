@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-// import { addNewExercise } from '../store/actions'
+import { removeScheduleDayExercise } from '../store/actions'
 import ScheduleDay from '../components/ScheduleDay'
 
 export const ScheduleDayContainer = connect (
@@ -9,6 +9,8 @@ export const ScheduleDayContainer = connect (
     workDays: state.workState.workDays
   }),
   dispatch => ({
-    // removeExerciseFromSchedule( dayID, exerciseID )
+    onRemoveExerciseClick( dayID, exerciseID ) {
+      dispatch(removeScheduleDayExercise( dayID, exerciseID ))
+    }
   })
 )(ScheduleDay)
